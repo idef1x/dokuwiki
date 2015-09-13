@@ -1,5 +1,5 @@
 # dokuwiki
-Dokuwiki WiKi on Ubuntu
+Dokuwiki WiKi Docker image based on Ubuntu
 
 - in case of persistent storage: please mount it at /data in the container. See example startup.
 
