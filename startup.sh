@@ -6,7 +6,9 @@ if [ ! -d /data ]
     if `ls -A /data`
      then 
        echo "Clean install apparently"
-       mv /var/www/html /data
+       cp -dpr /var/www/html/* /data/
+       cp -dpr /var/www/html/.* /data/
+       rm -rf /var/www/html
        # Set ownership of www dir to www-data
        chown -R www-data.www-data /data
        ln -s /data /var/www/html
