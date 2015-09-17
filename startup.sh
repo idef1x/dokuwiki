@@ -19,8 +19,5 @@ if [ ! -d /data ]
 fi
 
 # start Apache 
-/etc/init.d/apache2 start
-
-# to keep container alive keep this shell open:
-tail -f /var/log/dmesg
+source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND
 
