@@ -27,6 +27,7 @@ RUN a2enmod rewrite
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 ADD startup.sh /startup.sh
 RUN chmod +x /startup.sh
+RUN touch /firstrun
 
 # Cleanup
 RUN apt-get clean
