@@ -10,5 +10,6 @@ docker run -d \
   -v /etc/timezone:/etc/timezone:ro \
   -v <path on host for data>:/data \
   --name dokuwiki -h <FQDN> \
+  -p 80:80 \
   idef1x/dokuwiki
 ```
