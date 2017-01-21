@@ -1,5 +1,5 @@
 # dokuwiki
-Dokuwiki WiKi Docker image based on Ubuntu
+Dokuwiki WiKi Docker image based on alpine and nginx 
 
 - in case of persistent storage: please mount it at /data in the container. See example startup.
 
@@ -13,3 +13,7 @@ docker run -d \
   -p 80:80 \
   idef1x/dokuwiki
 ```
+
+# Initial set-up
+Goto http://<hostip>/install.php
+- fill in the required settings

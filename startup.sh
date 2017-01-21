@@ -1,6 +1,9 @@
 #!/bin/bash
 if [ -f /firstrun ]
   then
+    # Create nginx run dir, since it doesn't exist on start
+    mkdir -p /run/nginx
+    chown -R nginx. /run/nginx
     rm /firstrun
     if [ ! -d /data ]
       then 
@@ -11,17 +14,15 @@ if [ -f /firstrun ]
             echo "Clean install apparently"
             cp -dpr /var/www/html/* /data/
        	    cp -dpr /var/www/html/.* /data/
-            rm -rf /var/www/html
-            # Set ownership of www dir to www-data
-            chown -R www-data.www-data /data
-            ln -s /data /var/www/html
-          else
-            rm -rf /var/www/html
-            ln -s /data /var/www/html 
         fi
+        rm -rf /var/www/html
+        # Set ownership of www dir to nobody 
+        chown -R nobody. /data
+        ln -s /data /var/www/html
     fi
 fi
 
-# start Apache 
-source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND
+# start nginx
+/usr/sbin/php-fpm7
+nginx -g "daemon off;"
 
