@@ -15,6 +15,6 @@ docker run -d \
 ```
 
 # Initial set-up
-- Goto http://<hostip>/install.php
+- Goto http://hostip/install.php
 - fill in the required settings
 - All done!
